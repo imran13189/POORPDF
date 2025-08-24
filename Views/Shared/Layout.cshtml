@@ -24,26 +24,36 @@
     <link href="~/style.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffffff;">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="~/images/logo.png" alt="POORPDF Logo - Free HTML and URL to PDF Converter" width="150" height="40" class="d-inline-block align-top">
-             
             </a>
-            <div class="collapse navbar-collapse">
+
+            <!-- Toggler button (mobile menu) -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link @(ViewBag.ActiveTab == "Html" ? "active" : "")" href="@Url.Action("PdfWithHtml", "HtmlToPdf")">PDF with HTML</a>
+                        <a class="nav-link @(ViewBag.ActiveTab == "Html" ? "active" : "")"
+                           href="@Url.Action("PdfWithHtml", "HtmlToPdf")">PDF with HTML</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @(ViewBag.ActiveTab == "Url" ? "active" : "")" href="@Url.Action("PdfWithUrl", "HtmlToPdf")">PDF with URL</a>
+                        <a class="nav-link @(ViewBag.ActiveTab == "Url" ? "active" : "")"
+                           href="@Url.Action("PdfWithUrl", "HtmlToPdf")">PDF with URL</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <main class="container my-5">
+
+    <main class="container my-3">
         @RenderBody()
     </main>
     <div id="loader-overlay" class="loader-overlay d-none">
@@ -56,5 +66,11 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+    <script>
+        const apiUrlwithHtml = '@Url.Content("~/api/PDF/generate")';
+        const apiUrlwithUrl = '@Url.Content("~/api/PDF/generate-from-url")';
+    </script>
+   
+    <script src="~/scripts/app.js"></script>
 </body>
 </html>

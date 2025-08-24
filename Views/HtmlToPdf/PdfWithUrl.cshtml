@@ -10,49 +10,4 @@
     </form>
 </div>
 
-<script>
-    const urlForm = document.getElementById("url-form");
-    const urlInput = document.getElementById("url-input");
-   
-    const apiUrlwithUrl = '@Url.Content("~/api/PDF/generate-from-url")';
 
-    urlForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const websiteUrl = urlInput.value.trim();
-        if (!websiteUrl) {
-            alert("Please enter a valid URL.");
-            return;
-        }
-
-        const loader = document.getElementById("loader-overlay"); // if you have loader
-
-        try {
-            if (loader) loader.classList.remove("d-none");
-
-            const response = await fetch(apiUrlwithUrl, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ url: websiteUrl })
-            });
-
-            if (!response.ok) throw new Error("Failed to generate PDF");
-
-            const blob = await response.blob();
-            const pdfUrl = window.URL.createObjectURL(blob);
-
-            const a = document.createElement("a");
-            a.href = pdfUrl;
-            a.download = "webpage.pdf";
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            window.URL.revokeObjectURL(pdfUrl);
-
-        } catch (err) {
-            alert("Error: " + err.message);
-        } finally {
-            if (loader) loader.classList.add("d-none");
-        }
-    });
-</script>

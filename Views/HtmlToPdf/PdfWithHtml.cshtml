@@ -1,0 +1,72 @@
+﻿<div class="card p-4">
+    <h1 class="mb-4">Create PDF from HTML Online</h1>
+    <p>
+        Paste your HTML code below, preview it instantly, and download as a PDF.
+        This free tool helps developers, bloggers, and designers convert HTML into PDF files.
+    </p>
+
+    <form id="html-form">
+        <div class="form-group">
+            <label for="html-input">Paste your HTML code here:</label>
+            <textarea class="form-control" id="html-input" rows="10"
+                      placeholder="&lt;h1&gt;Hello PDFOcean!&lt;/h1&gt;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">
+            Generate PDF
+        </button>
+    </form>
+
+    <!-- SEO-friendly live preview -->
+    <h2 class="mt-4">Live Preview</h2>
+    <div id="html-preview" class="p-3 border bg-light">
+        <em>Your HTML output will appear here...</em>
+    </div>
+</div>
+
+<script>
+    const input = document.getElementById("html-input");
+    const preview = document.getElementById("html-preview");
+    const form = document.getElementById("html-form");
+
+                    const apiUrlwithHtml = '@Url.Content("~/api/PDF/generate")';
+
+    input.addEventListener("input", () => {
+      preview.innerHTML = input.value;
+    });
+
+ form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const htmlContent = input.value;
+      const loader = document.getElementById("loader-overlay");
+
+      try {
+        loader.classList.remove("d-none"); // Show loader
+
+                 const response = await fetch(apiUrlwithHtml, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ html: htmlContent })
+        });
+
+        if (!response.ok) throw new Error("Failed to generate PDF");
+
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "document.pdf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+
+      } catch (err) {
+        alert("Error: " + err.message);
+      } finally {
+        loader.classList.add("d-none"); // Hide loader
+      }
+    });
+
+</script>

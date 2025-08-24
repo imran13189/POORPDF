@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POORPDF - Free HTML & URL to PDF Converter Online</title>
+    <meta name="description" content="POORPDF is a free and fast online tool to convert HTML and URLs into PDF documents. Easily generate high-quality PDFs from web pages with our simple API or user-friendly interface.">
+    <meta name="keywords" content="HTML to PDF, URL to PDF, convert HTML to PDF, convert URL to PDF, PDF generator, online PDF converter, free PDF tool, PDF API">
+    <meta name="author" content="POORPDF">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.poorpdf.com/">
+    <meta property="og:title" content="POORPDF - Free HTML & URL to PDF Converter Online">
+    <meta property="og:description" content="POORPDF is a free and fast online tool to convert HTML and URLs into PDF documents. Easily generate high-quality PDFs from web pages with our simple API or user-friendly interface.">
+    <meta property="og:image" content="https://www.poorpdf.com/social-image.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.poorpdf.com/">
+    <meta property="twitter:title" content="POORPDF - Free HTML & URL to PDF Converter Online">
+    <meta property="twitter:description" content="POORPDF is a free and fast online tool to convert HTML and URLs into PDF documents. Easily generate high-quality PDFs from web pages with our simple API or user-friendly interface.">
+    <meta property="twitter:image" content="https://www.poorpdf.com/social-image.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="~/style.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="~/images/logo.png" alt="POORPDF Logo - Free HTML and URL to PDF Converter" width="150" height="40" class="d-inline-block align-top">
+             
+            </a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewBag.ActiveTab == "Html" ? "active" : "")" href="@Url.Action("PdfWithHtml", "HtmlToPdf")">PDF with HTML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewBag.ActiveTab == "Url" ? "active" : "")" href="@Url.Action("PdfWithUrl", "HtmlToPdf")">PDF with URL</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        @RenderBody()
+    </main>
+    <div id="loader-overlay" class="loader-overlay d-none">
+        <div class="spinner"></div>
+        <p>Generating your PDF...</p>
+    </div>
+    <footer class="text-center py-4">
+        <p>&copy; 2025 POORPDF. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</body>
+</html>

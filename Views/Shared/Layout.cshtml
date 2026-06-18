@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POORPDF - Free HTML & URL to PDF Converter Online</title>
-    <meta name="description" content="POORPDF is a free and fast online tool to convert HTML and URLs into PDF documents. Easily generate high-quality PDFs from web pages with our simple API or user-friendly interface.">
-    <meta name="keywords" content="HTML to PDF, URL to PDF, convert HTML to PDF, convert URL to PDF, PDF generator, online PDF converter, free PDF tool, PDF API">
+
+    <!-- SEO Core -->
+    <title>Free HTML & URL to PDF Converter Online | POORPDF</title>
+    <meta name="description" content="Convert HTML or any webpage URL into high-quality PDFs instantly with POORPDF. Free, fast, and secure online PDF generator — no downloads required.">
     <meta name="author" content="POORPDF">
 
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.poorpdf.com/">
-    <meta property="og:title" content="POORPDF - Free HTML & URL to PDF Converter Online">
-    <meta property="og:description" content="POORPDF is a free and fast online tool to convert HTML and URLs into PDF documents. Easily generate high-quality PDFs from web pages with our simple API or user-friendly interface.">
+    <meta property="og:title" content="Free HTML & URL to PDF Converter Online | POORPDF">
+    <meta property="og:description" content="Easily generate high-quality PDFs from HTML or URLs with POORPDF. Free, fast, and user-friendly online PDF converter.">
     <meta property="og:image" content="https://www.poorpdf.com/social-image.png">
 
+    <!-- Twitter Cards -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.poorpdf.com/">
-    <meta property="twitter:title" content="POORPDF - Free HTML & URL to PDF Converter Online">
-    <meta property="twitter:description" content="POORPDF is a free and fast online tool to convert HTML and URLs into PDF documents. Easily generate high-quality PDFs from web pages with our simple API or user-friendly interface.">
+    <meta property="twitter:title" content="Free HTML & URL to PDF Converter Online | POORPDF">
+    <meta property="twitter:description" content="Convert HTML and URLs into PDF documents instantly with POORPDF. 100% free and easy-to-use online tool.">
     <meta property="twitter:image" content="https://www.poorpdf.com/social-image.png">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="~/style.css" rel="stylesheet" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8352757121826589" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffffff;">
@@ -71,6 +75,28 @@
         const apiUrlwithUrl = '@Url.Content("~/api/PDF/generate-from-url")';
     </script>
    
-    <script src="~/scripts/app.js"></script>
+    <script src="~/scripts/app.min.js"></script>
+
+    <script type="application/ld+json">
+        {
+          "@@context": "https://schema.org",
+          "@@type": "WebApplication",
+          "name": "POORPDF",
+          "url": "https://www.poorpdf.com/",
+          "description": "Free online tool to convert HTML and URLs into PDF documents.",
+          "applicationCategory": "Utility",
+          "operatingSystem": "Any"
+        }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HD1DZHYFPH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HD1DZHYFPH');
+    </script>
 </body>
 </html>

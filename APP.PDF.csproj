@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.2" />
     <PackageReference Include="PuppeteerSharp" Version="20.2.2" />
     <PackageReference Include="WebMarkupMin.AspNetCore7" Version="2.19.0" />
   </ItemGroup>
